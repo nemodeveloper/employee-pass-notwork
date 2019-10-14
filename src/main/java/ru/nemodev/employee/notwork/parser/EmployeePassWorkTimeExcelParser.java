@@ -1,10 +1,9 @@
 package ru.nemodev.employee.notwork.parser;
 
-import ru.nemodev.employee.notwork.entity.EmployeePass;
 import org.apache.poi.ss.usermodel.Row;
+import ru.nemodev.employee.notwork.entity.EmployeePass;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -46,7 +45,7 @@ public class EmployeePassWorkTimeExcelParser extends ListExcelParser<EmployeePas
             employeePass.fio = row.getCell(4).getStringCellValue();
             employeePass.date = Calendar.getInstance();
             employeePass.date.setTime(dateParser.parse(row.getCell(5).getStringCellValue()));
-            employeePass.direction = EmployeePass.Direction.fromString(row.getCell(6).getStringCellValue());
+            employeePass.direction = row.getCell(6).getStringCellValue();
             employeePass.object = row.getCell(1).getStringCellValue();
 
             return employeePass;
